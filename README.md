@@ -1,5 +1,5 @@
 # openyssharpdemo
-基于csharp编写的海康萤石云视频预览的DEMO。封装了海康萤石云API为activex oxc控件，能在windows、web下使用，包含了setup打包工程，实现了基本的身份认证登录、获取摄像机列表、视频预览等功能。
+基于csharp编写的海康萤石云视频应用的DEMO。封装了海康萤石云API为activex oxc控件，能在windows、web下使用，包含了setup打包工程，实现了基本的身份认证登录、获取摄像机列表、视频预览等功能。
 
 ## 海康萤石云简介
 
