@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{009F95FA-58EB-4B2B-A66E-D16A8AB01CC3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tyysocxwebsample</RootNamespace>
+    <AssemblyName>tyysocxwebsample</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\zTree_v3-master\api\apiCss\api.js" />
+    <Content Include="js\zTree_v3-master\api\apiCss\common.css" />
+    <Content Include="js\zTree_v3-master\api\apiCss\common_ie6.css" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\apiMenu.gif" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\apiMenu.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\background.jpg" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\chinese.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\close.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\contact-bg.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\english.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\header-bg.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\lightbulb.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\overlay_arrow.gif" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\overlay_arrow.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\overlay_bg.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\overlay_close_IE6.gif" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\zTreeStandard.gif" />
+    <Content Include="js\zTree_v3-master\api\apiCss\img\zTreeStandard.png" />
+    <Content Include="js\zTree_v3-master\api\apiCss\jquery-1.6.2.min.js" />
+    <Content Include="js\zTree_v3-master\api\apiCss\jquery.ztree.core.js" />
+    <Content Include="js\zTree_v3-master\api\apiCss\zTreeStyleForApi.css" />
+    <Content Include="js\zTree_v3-master\api\API_cn.html" />
+    <Content Include="js\zTree_v3-master\api\API_en.html" />
+    <Content Include="js\zTree_v3-master\api\cn\fn.zTree.destroy.html" />
+    <Content Include="js\zTree_v3-master\api\cn\fn.zTree.getZTreeObj.html" />
+    <Content Include="js\zTree_v3-master\api\cn\fn.zTree.init.html" />
+    <Content Include="js\zTree_v3-master\api\cn\fn.zTree._z.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.autoParam.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.contentType.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.dataFilter.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.dataType.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.enable.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.otherParam.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.type.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.async.url.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeAsync.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeCheck.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeClick.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeCollapse.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeDblClick.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeDrag.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeDragOpen.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeDrop.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeEditName.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeExpand.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeMouseDown.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeMouseUp.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeRemove.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeRename.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.beforeRightClick.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onAsyncError.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onAsyncSuccess.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onCheck.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onClick.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onCollapse.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onDblClick.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onDrag.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onDragMove.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onDrop.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onExpand.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onMouseDown.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onMouseUp.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onNodeCreated.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onRemove.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onRename.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.callback.onRightClick.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.autoCheckTrigger.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.chkboxType.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.chkDisabledInherit.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.chkStyle.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.enable.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.nocheckInherit.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.check.radioType.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.keep.leaf.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.keep.parent.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.key.checked.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.key.children.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.key.name.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.key.title.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.key.url.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.simpleData.enable.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.simpleData.idKey.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.simpleData.pIdKey.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.data.simpleData.rootPId.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.borderMax.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.borderMin.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.inner.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.isCopy.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.isMove.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.minMoveSize.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.next.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.drag.prev.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.editNameSelectAll.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.enable.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.removeTitle.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.renameTitle.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.showRemoveBtn.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.edit.showRenameBtn.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.treeId.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.treeObj.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.addDiyDom.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.addHoverDom.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.autoCancelSelected.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.dblClickExpand.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.expandSpeed.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.fontCss.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.nameIsHTML.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.removeHoverDom.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.selectedMulti.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.showIcon.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.showLine.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.showTitle.html" />
+    <Content Include="js\zTree_v3-master\api\cn\setting.view.txtSelectedEnable.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.checked.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.checkedOld.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.check_Child_State.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.check_Focus.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.children.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.chkDisabled.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.click.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.diy.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.editNameFlag.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.getCheckStatus.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.getIndex.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.getNextNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.getParentNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.getPath.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.getPreNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.halfCheck.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.icon.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.iconClose.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.iconOpen.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.iconSkin.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.isAjaxing.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.isFirstNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.isHidden.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.isHover.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.isLastNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.isParent.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.level.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.name.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.nocheck.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.open.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.parentTId.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.target.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.tId.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.url.html" />
+    <Content Include="js\zTree_v3-master\api\cn\treeNode.zAsync.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.addNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.cancelEditName.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.checkAllNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.checkNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.copyNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.destroy.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.editName.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.expandAll.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.expandNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getCheckedNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodeByParam.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodeByTId.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodeIndex.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodesByFilter.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodesByParam.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.getSelectedNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.hideNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.hideNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.moveNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.refresh.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.removeChildNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.removeNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.selectNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.setChkDisabled.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.setEditable.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.setting.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.showNode.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.showNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.transformToArray.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="js\zTree_v3-master\api\cn\zTreeObj.updateNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\fn.zTree.destroy.html" />
+    <Content Include="js\zTree_v3-master\api\en\fn.zTree.getZTreeObj.html" />
+    <Content Include="js\zTree_v3-master\api\en\fn.zTree.init.html" />
+    <Content Include="js\zTree_v3-master\api\en\fn.zTree._z.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.autoParam.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.contentType.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.dataFilter.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.dataType.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.enable.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.otherParam.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.type.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.async.url.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeAsync.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeCheck.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeClick.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeCollapse.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeDblClick.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeDrag.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeDragOpen.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeDrop.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeEditName.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeExpand.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeMouseDown.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeMouseUp.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeRemove.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeRename.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.beforeRightClick.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onAsyncError.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onAsyncSuccess.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onCheck.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onClick.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onCollapse.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onDblClick.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onDrag.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onDragMove.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onDrop.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onExpand.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onMouseDown.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onMouseUp.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onNodeCreated.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onRemove.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onRename.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.callback.onRightClick.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.autoCheckTrigger.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.chkboxType.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.chkDisabledInherit.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.chkStyle.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.enable.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.nocheckInherit.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.check.radioType.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.keep.leaf.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.keep.parent.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.key.checked.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.key.children.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.key.name.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.key.title.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.key.url.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.simpleData.enable.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.simpleData.idKey.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.simpleData.pIdKey.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.data.simpleData.rootPId.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.borderMax.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.borderMin.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.inner.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.isCopy.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.isMove.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.minMoveSize.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.next.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.drag.prev.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.editNameSelectAll.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.enable.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.removeTitle.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.renameTitle.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.showRemoveBtn.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.edit.showRenameBtn.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.treeId.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.treeObj.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.addDiyDom.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.addHoverDom.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.autoCancelSelected.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.dblClickExpand.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.expandSpeed.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.fontCss.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.nameIsHTML.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.removeHoverDom.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.selectedMulti.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.showIcon.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.showLine.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.showTitle.html" />
+    <Content Include="js\zTree_v3-master\api\en\setting.view.txtSelectedEnable.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.checked.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.checkedOld.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.check_Child_State.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.check_Focus.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.children.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.chkDisabled.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.click.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.diy.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.editNameFlag.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.getCheckStatus.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.getIndex.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.getNextNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.getParentNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.getPath.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.getPreNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.halfCheck.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.icon.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.iconClose.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.iconOpen.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.iconSkin.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.isAjaxing.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.isFirstNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.isHidden.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.isHover.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.isLastNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.isParent.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.level.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.name.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.nocheck.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.open.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.parentTId.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.target.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.tId.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.url.html" />
+    <Content Include="js\zTree_v3-master\api\en\treeNode.zAsync.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.addNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.cancelEditName.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.checkAllNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.checkNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.copyNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.destroy.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.editName.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.expandAll.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.expandNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getCheckedNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodeByParam.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodeByTId.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodeIndex.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodesByFilter.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodesByParam.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.getSelectedNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.hideNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.hideNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.moveNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.refresh.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.removeChildNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.removeNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.selectNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.setChkDisabled.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.setEditable.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.setting.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.showNode.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.showNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.transformToArray.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="js\zTree_v3-master\api\en\zTreeObj.updateNode.html" />
+    <Content Include="js\zTree_v3-master\css\awesomeStyle\awesome.css" />
+    <Content Include="js\zTree_v3-master\css\awesomeStyle\img\loading.gif" />
+    <Content Include="js\zTree_v3-master\css\demo.css" />
+    <Content Include="js\zTree_v3-master\css\metroStyle\img\line_conn.png" />
+    <Content Include="js\zTree_v3-master\css\metroStyle\img\loading.gif" />
+    <Content Include="js\zTree_v3-master\css\metroStyle\img\metro.gif" />
+    <Content Include="js\zTree_v3-master\css\metroStyle\img\metro.png" />
+    <Content Include="js\zTree_v3-master\css\metroStyle\metroStyle.css" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\header-bg.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\loading.gif" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\offline.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\online.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="js\zTree_v3-master\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="js\zTree_v3-master\demo\cn\bigdata\common.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\bigdata\diy_async.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\bigdata\page.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\async.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\async_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\click.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\custom_font.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\custom_icon.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\custom_iconSkin.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\expand.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\noicon.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\noline.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\otherMouse.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\searchNodes.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\simpleData.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\standardData.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\update_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\core\url.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\checkbox.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\checkbox_chkDisabled.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\checkbox_count.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\checkbox_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\checkbox_halfCheck.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\checkbox_nocheck.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\radio.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\radio_chkDisabled.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\radio_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\radio_halfCheck.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\excheck\radio_nocheck.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\async_edit.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\drag.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\drag_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\drag_super.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\edit.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\edit_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\edit_super.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exedit\multiTree.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exhide\checkbox.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exhide\common.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\exhide\radio.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\index.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\asyncForAll.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\awesome.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\checkbox_radio.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\diydom.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\dragWithOther.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\left_menu.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\left_menuForOutLook.gif" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\left_menuForOutLook.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\left_menuForOutLook.png" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\metro.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\oneclick.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\oneroot.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\rightClickMenu.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\select_menu.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\select_menu_checkbox.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\select_menu_radio.html" />
+    <Content Include="js\zTree_v3-master\demo\cn\super\singlepath.html" />
+    <Content Include="js\zTree_v3-master\demo\en\bigdata\common.html" />
+    <Content Include="js\zTree_v3-master\demo\en\bigdata\diy_async.html" />
+    <Content Include="js\zTree_v3-master\demo\en\bigdata\page.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\async.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\async_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\click.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\custom_font.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\custom_icon.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\custom_iconSkin.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\expand.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\noicon.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\noline.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\otherMouse.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\searchNodes.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\simpleData.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\standardData.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\update_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\en\core\url.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\checkbox.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\checkbox_chkDisabled.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\checkbox_count.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\checkbox_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\checkbox_halfCheck.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\checkbox_nocheck.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\radio.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\radio_chkDisabled.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\radio_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\radio_halfCheck.html" />
+    <Content Include="js\zTree_v3-master\demo\en\excheck\radio_nocheck.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\async_edit.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\drag.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\drag_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\drag_super.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\edit.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\edit_fun.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\edit_super.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exedit\multiTree.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exhide\checkbox.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exhide\common.html" />
+    <Content Include="js\zTree_v3-master\demo\en\exhide\radio.html" />
+    <Content Include="js\zTree_v3-master\demo\en\index.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\asyncForAll.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\awesome.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\checkbox_radio.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\diydom.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\dragWithOther.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\left_menu.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\left_menuForOutLook.gif" />
+    <Content Include="js\zTree_v3-master\demo\en\super\left_menuForOutLook.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\left_menuForOutLook.png" />
+    <Content Include="js\zTree_v3-master\demo\en\super\metro.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\oneclick.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\oneroot.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\rightClickMenu.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\select_menu.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\select_menu_checkbox.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\select_menu_radio.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\singlepath.html" />
+    <Content Include="js\zTree_v3-master\demo\en\super\ztree.html" />
+    <Content Include="js\zTree_v3-master\js\jquery-1.4.4.min.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.all.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.all.min.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.core.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.core.min.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.excheck.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.excheck.min.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.exedit.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.exedit.min.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.exhide.js" />
+    <Content Include="js\zTree_v3-master\js\jquery.ztree.exhide.min.js" />
+    <Content Include="js\zTree_v3-master\log v3.x.txt" />
+    <Content Include="packages.config" />
+    <Content Include="js\zTree_v3-master\.gitattributes" />
+    <Content Include="js\zTree_v3-master\.gitignore" />
+    <Content Include="js\zTree_v3-master\css\awesomeStyle\awesome.less" />
+    <Content Include="js\zTree_v3-master\css\awesomeStyle\fa.less" />
+    <Content Include="js\zTree_v3-master\demo\cn\asyncData\getNodes.php" />
+    <Content Include="js\zTree_v3-master\demo\cn\asyncData\getNodesForBigData.php" />
+    <Content Include="js\zTree_v3-master\demo\en\asyncData\getNodes.php" />
+    <Content Include="js\zTree_v3-master\demo\en\asyncData\getNodesForBigData.php" />
+    <Content Include="js\zTree_v3-master\js\ztree.3.5.26.zip" />
+    <Content Include="js\zTree_v3-master\package.json" />
+    <Content Include="js\zTree_v3-master\README.md" />
+    <Content Include="js\zTree_v3-master\zTree.v3.jquery.json" />
+    <None Include="Properties\PublishProfiles\PJ.webvideo.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13512</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/tyysocxwebsample</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

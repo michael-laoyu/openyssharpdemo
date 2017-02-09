@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>海康莹石云平台</title>
+	<meta charset="utf-8" />
+
+    <link href="js/zTree_v3-master/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <script src="js/zTree_v3-master/js/jquery-1.4.4.min.js"></script>
+    <script src="js/zTree_v3-master/js/jquery.ztree.core.js"></script>
+
+    <style>
+        *{margin:0;padding:0;}
+        div.content_wrap {width: 100%;overflow:hidden;position:relative;}
+        div.content_wrap div.left{position:absolute;top:67px;left:0;width: 340px;}
+        div.content_wrap div.right{width:100%;margin-left:330px;border: 1px solid #a9a9a9;position:relative;top:2px;}
+        div.zTreeDemoBackground {width:350px;/*height:600px*/;text-align:left;padding:5px 0px;}
+        ul.ztree {border: 1px solid #a9a9a9;background: #fff;width:315px !important  ;height:100% !important;overflow-y:scroll;overflow-x:auto;}
+        input.button{background-color:#04c1fa;color:#fff;border:1px solid #04c1fa;padding:4px 6px;}
+       
+        .title h1{margin: 0 0 0 15px; font-weight:500;font-size:18xp;padding:4px 0px;color:#fff;}
+        .buttons{margin: 0 0 0 15px;}
+    </style>
+</head>
+<body>
+    <div class="content_wrap">
+        <div class="title">
+            <h1>海康莹石云平台</h1>
+            <div class="buttons">
+                <input type="button" id="btnLogin" value=" 直接登录" class="button" />
+                <input type="button" id="btnLoginMid" value=" 莹石授权登录" class="button" />
+                <input type="button" id="btnGetDevList" value=" 获取摄像机列表" class="button" />
+            </div>
+        </div>
+        
+        <div class="right" >
+            <object id="tyys" classid="clsid:B9414270-ED53-46CE-A40F-802FE2D8AF8B" 
+                    codeBase="File/tyysocx.cab" width="1100px" height="700px"></object>
+            
+        </div>
+
+        <div class="zTreeDemoBackground left">
+            <ul id="ztree" class="ztree" style="width:350px;height:800px;"></ul>
+        </div>
+    </div>  
+
+    <script type="text/javascript">
+
+        var zTreeObj, rootNode;
+        // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+       var setting = {
+           callback: {
+               onDblClick: zTreeOnDblClick
+           }
+       };
+
+       function zTreeOnDblClick(event, treeId, treeNode) {
+           console.log(treeNode ? treeNode.tId + ", " + treeNode.name : "isRoot");
+           console.log(treeNode);
+           tyys.StartPlay(treeNode.cameraId);
+       };
+
+        // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+     
+        $(document).ready(function () {
+            zTreeObj = $.fn.zTree.init($("#ztree"), setting);
+            rootNode = zTreeObj.addNodes(null, { name: "设备列表" })[0];
+            var btnLogin = document.getElementById('btnLogin');
+            btnLogin.addEventListener('click', function () {
+                //var ret = tyys.LoginByMid();
+                var ret = tyys.LoginImmediately();
+                console.log(ret);
+                if (ret) {
+                    alert('登录成功！');
+                }
+            });
+
+            var btnLoginMid = document.getElementById('btnLoginMid');
+            btnLoginMid.addEventListener('click', function () {
+              
+                var ret = tyys.LoginByMid();
+                console.log(ret);
+                if (ret) {
+                    alert('登录成功！');
+                }
+            });
+
+            var btnGetDevList = document.getElementById('btnGetDevList');
+            var cameraList = null;
+            btnGetDevList.addEventListener('click', function () {
+                var result = tyys.GetCameraList4JsonString();
+                result = JSON.parse(result);
+                console.log(result);
+                if (result.resultCode === '200') {
+                    cameraList = result.cameraList;
+                    cameraList.forEach(function (item) {
+                        var nodeObj = $.extend(item, { name: item.cameraName });
+                        var node = zTreeObj.addNodes(rootNode, nodeObj);
+                        console.log(item.status);
+                        if (item.status == 1) {
+                            $('#ztree #ztree_1_ul').find('span.button').removeClass('button').removeClass('ico_docu').addClass('online');
+                            $('#ztree #ztree_1_ul a').find('span:first').hide();
+                        } else if (item.status == 0) {
+                            $('#ztree #ztree_1_ul').find('span.button').removeClass('online').addClass('offline');
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var HEIGHT = $(window).height();
+            var WIDTH = $(window).width() - 330;
+            $('div.content_wrap').height(HEIGHT);
+
+            $('.zTreeDemoBackground').css('height', HEIGHT - 87)
+            $('#tyys').attr('width', WIDTH + 'px');
+            $('#tyys').attr('height', (HEIGHT - 80) + 'px');
+        })
+    </script>
+</body>
+</html>
