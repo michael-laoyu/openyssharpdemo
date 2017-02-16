@@ -1,5 +1,5 @@
 # openyssharpdemo
-基于csharp编写的海康萤石云视频应用的DEMO。封装了海康萤石云API为activex oxc控件，能在windows、web下使用，包含了setup打包工程，实现了基本的身份认证登录、获取摄像机列表、视频预览等功能。
+基于csharp编写的海康萤石云视频应用的DEMO。封装了海康萤石云API为activex ocx控件，能在windows、web下使用，包含了setup打包工程，实现了基本的身份认证登录、获取摄像机列表、视频预览等功能。
 
 ## 海康萤石云简介
 
@@ -12,7 +12,7 @@
     tyys(解决方案)
         -setup          基于vs2015的install shield打包工程；
         -tyysocx        activex ocx控件(com组件)，封装了海康萤石云的API调用；
-        -tyyswebsample  调用oxc的web站点
+        -tyyswebsample  调用ocx的web站点
         -tyysocxexe     调用ocx的winform exe
 
 开发环境：vs2015 c#，用到了托管指针等unsafe代码。在win7、win10，IE8-IE11下测试过没有问题。
