@@ -18,6 +18,8 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+
+            DisposeCamera();//释放所有资源；
         }
 
         #region 组件设计器生成的代码

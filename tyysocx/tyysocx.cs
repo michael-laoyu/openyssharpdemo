@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace tyysocx
 {
@@ -55,6 +56,35 @@ namespace tyysocx
             return HkApi.GetCameraList();
         }
 
+        public void InitPlayBox(int playerMode)
+        {
+            int formWidth = playboxPanel.Width;
+            int formHeight = playboxPanel.Height;
+            int count = Convert.ToInt32(Math.Sqrt(playerMode));
+            int padding = 3;
+            int boxWidth = formWidth / count;
+            int boxHeight = formHeight / count;
+            playboxPanel.Controls.Clear();
+            using (Graphics g = playboxPanel.CreateGraphics())
+            {
+                g.Clear(playboxPanel.BackColor);
+            }
+            for (int i = playerMode; i < MAX_PLAY_BOX; i++)
+            {
+                PictureBox box = _listPlayBox[i];
+                PlayObject obj = box.Tag as PlayObject;
+                OnClosePlayBox(obj);
+                playboxPanel.Controls.Remove(box);
+            }
+            for (int i = 0; i < playerMode; i++)
+            {
+                PictureBox box = _listPlayBox[i];
+                box.Size = new Size(boxWidth - padding * 2, boxHeight - padding * 2);
+                box.Margin = new System.Windows.Forms.Padding(padding);
+                playboxPanel.Controls.Add(box);
+            }
+        }
+
         public bool StartPlay(string cameraId)
         {
             if(_currSelectedBox !=null)
@@ -68,18 +98,58 @@ namespace tyysocx
                 obj.IsPlaying = true;
                 obj.SessionId = sessionId;
                 obj.CameraId = cameraId;
+                OnPlayingBox(_currSelectedBox);
+                _currSelectedBox = null;
+            }
+            else
+            {
+                PictureBox box = GetIdleBox();
+                if(box != null)
+                {
+                    PlayObject obj = box.Tag as PlayObject;
+                    IntPtr hwnd = box.Handle;
+                    IntPtr sessionId = HkApi.AllocSession();
+                    HkApi.StartPlay(hwnd, cameraId, sessionId);
+
+                    obj.IsPlaying = true;
+                    obj.SessionId = sessionId;
+                    obj.CameraId = cameraId;
+                    OnPlayingBox(box);
+                }
             }
             return false;
         }
         
+
+        /// <summary>
+        /// 释放视频
+        /// </summary>
+        public void DisposeCamera()
+        {
+            try
+            {
+                foreach (PictureBox box in _listPlayBox)
+                {
+                    PlayObject obj = box.Tag as PlayObject;
+                    OnClosePlayBox(obj);
+                }
+                HkApi.Close();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }           
+        }
+       
+
         protected override void OnLoad(EventArgs e)
         {
             btn1.Click += Btn_Click;            
             btn4.Click += Btn_Click;
             btn9.Click += Btn_Click;
             btn16.Click += Btn_Click;
-            Btn_Click(btn1, EventArgs.Empty);
-            PlayBoxClick(_listPlayBox[0], EventArgs.Empty);
+            Btn_Click(btn4, EventArgs.Empty);//调用InitPlayBox，初始化界面，默认是4个播放页面；
+            //PlayBoxClick(_listPlayBox[0], EventArgs.Empty); //默认选择第一个box;
             HkApi.Init();
         }
 
@@ -93,19 +163,25 @@ namespace tyysocx
             }
         }
 
-        protected override void OnHandleDestroyed(EventArgs e)
+        /// <summary>
+        /// 获取空闲的播放box
+        /// </summary>
+        /// <returns></returns>
+        private PictureBox GetIdleBox()
         {
-            if (playboxPanel.Controls.Count > 0)
+            if (_listPlayBox.Count >= _playMode)
             {
-                playboxPanel.Controls.Clear();
-                foreach (var box in _listPlayBox)
+                for (int i = 0; i < _playMode; i++)
                 {
+                    PictureBox box = _listPlayBox[i];
                     PlayObject obj = box.Tag as PlayObject;
-                    OnClosePlayBox(obj);
+                    if (!obj.IsPlaying)
+                    {
+                        return box;
+                    }
                 }
             }
-            HkApi.Close();
-            base.OnHandleDestroyed(e);
+            return null;
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -144,16 +220,32 @@ namespace tyysocx
             {
                 PictureBox p = sender as PictureBox;
                 _currSelectedBox = p;
-                using (Graphics g = playboxPanel.CreateGraphics())
-                {
-                    g.Clear(playboxPanel.BackColor);
-                    Pen pen = new Pen(Color.Blue, 3);
-                    //g.DrawRectangle(pen, p.Bounds.X - 2, p.Bounds.Y - 2, p.Bounds.X + p.Bounds.Width, p.Bounds.Y + p.Bounds.Height);
-                    g.DrawRectangle(pen, p.Bounds.X - 2, p.Bounds.Y - 2, p.Bounds.Width+3, p.Bounds.Height+3);
-                }
+                OnSelectedBox(p);
             }
             catch (Exception)
             {
+            }
+        }
+
+        private void OnSelectedBox(PictureBox box)
+        {
+            using (Graphics g = playboxPanel.CreateGraphics())
+            {
+                g.Clear(playboxPanel.BackColor);
+                Pen pen = new Pen(Color.Blue, 3);
+                //g.DrawRectangle(pen, box.Bounds.X - 2, box.Bounds.Y - 2, box.Bounds.X + box.Bounds.Width, box.Bounds.Y + box.Bounds.Height);
+                g.DrawRectangle(pen, box.Bounds.X - 2, box.Bounds.Y - 2, box.Bounds.Width + 3, box.Bounds.Height + 3);
+            }
+        }
+
+        private void OnPlayingBox(PictureBox box)
+        {
+            using (Graphics g = playboxPanel.CreateGraphics())
+            {
+                g.Clear(playboxPanel.BackColor);
+                Pen pen = new Pen(Color.DarkViolet, 3);
+                //g.DrawRectangle(pen, box.Bounds.X - 2, box.Bounds.Y - 2, box.Bounds.X + box.Bounds.Width, box.Bounds.Y + box.Bounds.Height);
+                g.DrawRectangle(pen, box.Bounds.X - 2, box.Bounds.Y - 2, box.Bounds.Width + 3, box.Bounds.Height + 3);
             }
         }
 
@@ -163,36 +255,7 @@ namespace tyysocx
             public IntPtr SessionId;
             public bool IsPlaying = false;
             public string CameraId;
-        }
-
-        private void InitPlayBox(int playerMode)
-        {
-            int formWidth = playboxPanel.Width;
-            int formHeight = playboxPanel.Height;
-            int count = Convert.ToInt32(Math.Sqrt(playerMode));
-            int padding = 3;
-            int boxWidth = formWidth / count;
-            int boxHeight = formHeight/ count;
-            playboxPanel.Controls.Clear();
-            using (Graphics g = playboxPanel.CreateGraphics())
-            {
-                g.Clear(playboxPanel.BackColor);
-            }
-            for(int i = playerMode;i<MAX_PLAY_BOX;i++)
-            {
-                PictureBox box = _listPlayBox[i];
-                PlayObject obj = box.Tag as PlayObject;
-                OnClosePlayBox(obj);
-                playboxPanel.Controls.Remove(box);
-            }
-            for (int i = 0;i<playerMode;i++)
-            {
-                PictureBox box = _listPlayBox[i];
-                box.Size = new Size(boxWidth - padding * 2, boxHeight - padding * 2);
-                box.Margin = new System.Windows.Forms.Padding(padding);
-                playboxPanel.Controls.Add(box);
-            }
-        }
+        }       
 
         private void Btn_Click(object sender, EventArgs e)
         {
