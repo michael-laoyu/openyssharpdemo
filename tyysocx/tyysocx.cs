@@ -16,9 +16,9 @@ namespace tyysocx
     public partial class tyysocx : UserControl, IObjectSafety
     {
         private int _playMode = -1;
-        private const int MAX_PLAY_BOX = 16;
+        private const int MAX_PLAY_BOX= 16;
         private List<PictureBox> _listPlayBox = new List<PictureBox>(MAX_PLAY_BOX);
-        private PictureBox _currSelectedBox = null;
+        private PictureBox _currSelectedBox=null;
 
         public tyysocx()
         {
@@ -46,7 +46,7 @@ namespace tyysocx
             return HkApi.Login();
         }
 
-        public string GetCameraList4JsonString()
+        public string  GetCameraList4JsonString()
         {
             return HkApi.GetCameraList4Json();
         }
@@ -56,13 +56,8 @@ namespace tyysocx
             return HkApi.GetCameraList();
         }
 
-        /// <summary>
-        /// 设置播放界面（1画面、4画面、16画面等） 
-        /// </summary>
-        /// <param name="playerMode"></param>
         public void InitPlayBox(int playerMode)
         {
-            this._playMode = playerMode;
             int formWidth = playboxPanel.Width;
             int formHeight = playboxPanel.Height;
             int count = Convert.ToInt32(Math.Sqrt(playerMode));
@@ -92,14 +87,14 @@ namespace tyysocx
 
         public bool StartPlay(string cameraId)
         {
-            if (_currSelectedBox != null)
+            if(_currSelectedBox !=null)
             {
                 PlayObject obj = _currSelectedBox.Tag as PlayObject;
                 OnClosePlayBox(obj);
-                IntPtr hwnd = _currSelectedBox.Handle;
-                IntPtr sessionId = HkApi.AllocSession();
+                 IntPtr hwnd = _currSelectedBox.Handle;
+                IntPtr sessionId=  HkApi.AllocSession();
                 HkApi.StartPlay(hwnd, cameraId, sessionId);
-
+              
                 obj.IsPlaying = true;
                 obj.SessionId = sessionId;
                 obj.CameraId = cameraId;
@@ -109,7 +104,7 @@ namespace tyysocx
             else
             {
                 PictureBox box = GetIdleBox();
-                if (box != null)
+                if(box != null)
                 {
                     PlayObject obj = box.Tag as PlayObject;
                     IntPtr hwnd = box.Handle;
@@ -124,7 +119,7 @@ namespace tyysocx
             }
             return false;
         }
-
+        
 
         /// <summary>
         /// 释放视频
@@ -143,13 +138,13 @@ namespace tyysocx
             catch (Exception e)
             {
                 Debug.WriteLine(e);
-            }
+            }           
         }
-
+       
 
         protected override void OnLoad(EventArgs e)
         {
-            btn1.Click += Btn_Click;
+            btn1.Click += Btn_Click;            
             btn4.Click += Btn_Click;
             btn9.Click += Btn_Click;
             btn16.Click += Btn_Click;
@@ -161,8 +156,8 @@ namespace tyysocx
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-
-            if (_playMode > 0 && _listPlayBox.Count > 0)
+            
+            if(_playMode>0 && _listPlayBox.Count>0)
             {
                 InitPlayBox(_playMode);
             }
@@ -207,7 +202,7 @@ namespace tyysocx
 
         private void InitListPlayBox()
         {
-            for (int i = 0; i < MAX_PLAY_BOX; i++)
+            for(int i= 0;i< MAX_PLAY_BOX; i++)
             {
                 PictureBox box = new PictureBox();
                 box.BackColor = Color.Black;
@@ -219,7 +214,7 @@ namespace tyysocx
             }
         }
 
-        private void PlayBoxClick(object sender, EventArgs e)
+        private void PlayBoxClick(object sender,EventArgs e)
         {
             try
             {
@@ -260,18 +255,18 @@ namespace tyysocx
             public IntPtr SessionId;
             public bool IsPlaying = false;
             public string CameraId;
-        }
+        }       
 
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             Image bgImg = null;
-            if (btn == this.btn1)
+            if(btn == this.btn1)
             {
                 bgImg = Properties.Resources.v_1_a;
                 _playMode = 1;
             }
-            if (btn == btn4)
+            if(btn == btn4)
             {
                 bgImg = Properties.Resources.v_4_a;
                 _playMode = 4;
@@ -298,13 +293,13 @@ namespace tyysocx
         private const string _IID_IPersistStorage = "{0000010A-0000-0000-C000-000000000046}";
         private const string _IID_IPersistStream = "{00000109-0000-0000-C000-000000000046}";
         private const string _IID_IPersistPropertyBag = "{37D84F60-42CB-11CE-8135-00AA004BB851}";
-
+ 
         private const int INTERFACESAFE_FOR_UNTRUSTED_CALLER = 0x00000001;
         private const int INTERFACESAFE_FOR_UNTRUSTED_DATA = 0x00000002;
         private const int S_OK = 0;
         private const int E_FAIL = unchecked((int)0x80004005);
         private const int E_NOINTERFACE = unchecked((int)0x80004002);
-
+ 
         private bool _fSafeForScripting = true;
         private bool _fSafeForInitializing = true;
 

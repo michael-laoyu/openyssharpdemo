@@ -18,11 +18,15 @@ namespace tyysocx
         private static string AccessToken=string.Empty;
         private static int AccessTokenLength= 0;
         private static string ApiUrl = "https://open.ys7.com/api/method";
-        private static string AppKey = "5c8abc7e11c94606b199fb771088c4db";//ConfigurationManager.AppSettings["AppKey"].ToString();//
+        //private static string AppKey = "5c8abc7e11c94606b199fb771088c4db";//盘锦大洼；//ConfigurationManager.AppSettings["AppKey"].ToString();//
+        private static string AppKey = "5c8abc7e11c94606b199fb771088c4db";//盘锦移动
+
         private static string AuthAddr = "https://auth.ys7.com";
-        private static string PhoneNumber = "13384271168";//ConfigurationManager.AppSettings["PhoneNumber"].ToString();//
+        //private static string PhoneNumber = "13384271168";//盘锦大洼；//ConfigurationManager.AppSettings["PhoneNumber"].ToString();//
+        private static string PhoneNumber = "18969185796";//盘锦移动
         private static string PlatformAddr = "https://open.ys7.com";
-        private static string SecretKey = "d8289da6bec56abc8c7dce10d49af7e7"; // ConfigurationManager.AppSettings["SecretKey"].ToString();//
+        //private static string SecretKey = "d8289da6bec56abc8c7dce10d49af7e7"; //盘锦大洼 ConfigurationManager.AppSettings["SecretKey"].ToString();//
+        private static string SecretKey = "dda8fd0c33eda787877dc709dcb3d948";//盘锦移动
 
         private static int videoQualityLevel = 0;//清晰度，0流畅，1标清，2高清
         private static string userId = "1b14cf56-b61d-43f5-a2c8-62b9626cbaaf";//自定义用户名，用guid防止重复
