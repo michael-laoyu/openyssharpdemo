@@ -55,12 +55,10 @@
        };
 
        function zTreeOnDblClick(event, treeId, treeNode) {
-           console.log(treeNode ? treeNode.tId + ", " + treeNode.name : "isRoot");
-           console.log(treeNode);
+           //console.log(treeNode ? treeNode.tId + ", " + treeNode.name : "isRoot");
+           //console.log(treeNode);
            tyys.StartPlay(treeNode.cameraId);
        };
-
-        // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
      
         $(document).ready(function () {
             zTreeObj = $.fn.zTree.init($("#ztree"), setting);
@@ -94,18 +92,22 @@
                 if (result.resultCode === '200') {
                     cameraList = result.cameraList;
                     cameraList.forEach(function (item) {
-                        var nodeObj = $.extend(item, { name: item.cameraName });
+                        var nodeObj = {
+                            name: item.cameraName,
+                            icon: "js/zTree_v3-master/css/zTreeStyle/img/offline.png"
+                        };
+                        if (item.status == 1) {
+                            //在线的图标
+                            nodeObj.icon = "js/zTree_v3-master/css/zTreeStyle/img/online.png";
+                        }
+                        nodeObj = $.extend(item, nodeObj);                  
                         var node = zTreeObj.addNodes(rootNode, nodeObj);
                         console.log(item.status);
-                        if (item.status == 1) {
-                            $('#ztree #ztree_1_ul').find('span.button').removeClass('button').removeClass('ico_docu').addClass('online');
-                            $('#ztree #ztree_1_ul a').find('span:first').hide();
-                        } else if (item.status == 0) {
-                            $('#ztree #ztree_1_ul').find('span.button').removeClass('online').addClass('offline');
-                        }
                     });
                 }
             });
+            
+            tyys.InitPlayBox(16);//初始化16路播放；
         });
 
     </script>

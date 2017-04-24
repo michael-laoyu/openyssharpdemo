@@ -33,8 +33,8 @@ namespace tyysoxcexe
         private List<camera> _devices = null;
         private void button2_Click(object sender, EventArgs e)
         {
-            GetDevListResult result =this.tyysocx1.GetCameraList();
-            if(result.resultCode==200)
+            GetDevListResult result = this.tyysocx1.GetCameraList();
+            if (result.resultCode == 200)
             {
                 _devices = result.cameraList;
                 foreach (var camera in result.cameraList)
@@ -47,10 +47,10 @@ namespace tyysoxcexe
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listBox1.SelectedIndex;
-            if(index>=0 && _devices!=null)
+            if (index >= 0 && _devices != null)
             {
                 var camera = _devices[index];
-                this.tyysocx1.StartPlay(camera.cameraId);                
+                this.tyysocx1.StartPlay(camera.cameraId);
             }
         }
     }
